@@ -1,0 +1,576 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+* ::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, ul, figure, p {
+  margin: 0;
+}
+
+body {
+    font-family: monospace, "PlayfairDisplay", sans-serif;
+    color: var(--color-dark);
+    background-color: var(--color-white);
+}
+
+:root {
+    --nav__link-hover: #b0030d;
+    --btn-color: #b0030d;
+    --btn-hover-color: #e8434b;
+    --btn-active-color: #b0030d;
+    --text-color: #fff;
+    --background-color: #121212;
+}
+
+@font-face {
+    font-family: "PlayfairDisplay";
+    src: local("PlayfairDisplay-Regular"), url("../fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 200%;
+    font-display: swap;
+    color: white;
+}
+
+@font-face {
+    font-family: "PlayfairDisplay";
+    src: local("PlayfairDisplay-Medium"), url("../fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf") format("ttf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+  
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    max-width: 1800px;
+    padding: 0 60px;
+    margin: 0 auto;  
+}
+
+.header {
+    padding: 33px 0;
+    border-bottom: 1px solid #c4c4c4;
+    background-color: #000;
+}
+
+.btn {
+    position: relative;
+    outline: none;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 15px 35px;
+    background-color: #b0030d;
+    color: white;     
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -3;
+    left: -3;
+    bottom: -3;
+    right: -3;
+    border-radius: inherit;
+    border: 1px solid #b0030d;
+    outline: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.btn:focus::after {
+    opacity: 1; 
+ }
+ 
+ .btn:hover {
+     background-color: var(--btn-hover-color);
+ }
+ 
+ .btn:active {
+     background-color: var(--btn-active-color);
+ }
+ 
+ .btn:active::after {
+     opacity: 0;
+ }
+
+ .nav__link {
+    position: relative;
+    font-weight: 600px;
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav__link:hover {
+    color: var(--nav__link-hover);
+}
+
+.nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav__link:hover::after {
+    transform: scale(1);
+}
+
+
+.header__container {
+    align-items: center;
+}
+
+.header__logo {
+    margin-right: auto;
+}
+
+.header__nav {
+    margin-right: 52px;
+}
+
+.nav__item:not(:last-child) {
+    margin-right: 52px;
+}
+
+.header__search {
+    border: 1px solid white;
+    display: inline-flex;
+    padding: 0 10px;
+    height: 25px;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.search_form_txt {
+    border: none;
+    width: 60px;
+    outline: none;
+    font-size: 15px;
+    padding-right: 5px;
+    color: white;
+    background-color: transparent;
+}
+
+.search_form_btn {
+    border: none;
+    background-color: transparent;
+}
+
+.search_form_btn svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+/*hero*/
+
+.hero {
+    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 110px;
+    background-color: transparent;
+    /* background-image: url("https://lostark-game.ru/wp-content/uploads/2020/01/%D0%BE%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B5.jpg"); */
+    background: linear-gradient(-45deg, rgba(0,0,0,0.5), #231f1f), url("https://itc.ua/wp-content/uploads/2022/01/igri-2022.jpg");
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero__content {
+    position: relative;
+    max-width: 50%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero__title {
+    margin: 0;
+    margin-bottom: 65px;
+    color: white;
+    font-size: 73px;
+}
+
+.first__title {
+    width: 13ch;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #b0030d;
+    animation: flashing-border 0.70s step-end infinite, typing 0.95s steps(13);
+}
+
+@keyframes flashing-border {
+    0% {border-color: #b0030d;}
+    50% {border-color: transparent;}
+    100% {border-color: #b0030d;}
+}
+
+@keyframes typing {
+    from {width: 0;}
+}
+
+.hero__descr {
+    margin: 0;
+    color: white;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-bottom: 17px;
+}
+
+.first__title {
+    margin-bottom: 75px;
+}
+
+
+/*about us*/
+
+.about__us {
+    padding-top: 23px;
+    padding-bottom: 40px;
+    background-color: var(--background-color);
+    border-bottom: 1px solid #c4c4c4;
+    line-height: 200%;
+}
+
+.about_us_content {
+    color: var(--text-color);
+    padding: 100px 0;
+    background-image: url("https://datorium.eu/wp-content/uploads/2020/09/gamedev.jpg");
+    background-position: right 250px;
+    background-repeat: no-repeat;
+    background-size: 45%;
+}
+
+.about_us_title {
+    margin-top: 0;
+}
+
+
+/* .gradient__bg {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(45.52% 45.16% at right bottom,#1b4b3a 0,rgba(27,75,67,0) 100%);
+} */
+
+.about_us_text {
+    max-width: 43%;
+}
+
+.gradient__text {
+    background-image: linear-gradient(90deg, #ec2222, #2824E6);
+    color: transparent;
+    -webkit-background-clip: text;
+    font-size: 70px;
+}
+
+.title__component {
+    margin-bottom: 10px;
+    line-height: normal;
+}
+
+.about_us_subtitle {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.about_us_descr {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/*games*/
+
+.games {
+    padding: 45px 0;
+    background-color: var(--background-color);
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.games__title {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 70px;
+    margin-bottom: 30px;
+}
+
+.games__list {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.games__item {
+    flex-direction: column;
+    width: 450px;
+    min-height: 500px;
+    border: 1px solid #c4c4c4;
+}
+  
+.games__item:not(:nth-child(2n)) {
+    margin-right: 60px;
+}
+
+.elem_translate::after {
+    transition-timing-function: ease-in-out;
+}
+
+.elem_translate:hover {
+    transform: translate(5px, -10px);
+}
+
+.games-blogs-image {
+    object-fit: cover; 
+}
+
+.cards-photo {
+    flex-shrink: 0;
+    height: 365px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-photo1 {
+    background-image: url("https://sun9-87.userapi.com/impg/cMKLxU_VuPhHAk2xv1ANiUznBxQPKSS044LgVA/-DKioPdML2s.jpg?size=1326x742&quality=95&sign=098ae38283d470a54283adb2aac20ad2&type=album");
+}
+  
+.card-photo2 {
+    background-image: url("https://sun9-62.userapi.com/impg/2C2wBv0jhP-G3KtOtPc0Str-IxG_bPJ75TFU2A/dzjw89owU34.jpg?size=1028x808&quality=95&sign=e494820f5b98d27146ae654319eab903&type=album");
+}
+
+.games_card_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 23px;
+    margin-top: 10px;
+    font-family: monospace;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: white;
+}
+
+.games_card_title::after { 
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+/*contacts*/
+
+.contacts {
+    padding: 33px 0;
+    border-bottom: 1px solid #c4c4c4;
+    background-color: transparent;
+    background-color: var(--background-color);
+}
+
+.contacts__content {
+    color: var(--text-color);
+    padding: 100px 0;
+}
+
+.contacts__title {
+    margin: 0;
+    margin-top: 80px;
+    font-size: 65px;
+}
+
+.contacts__address {
+    font-style: normal; 
+}
+
+.contacts__item {
+    flex-direction: column;
+    width: 370px;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 29px 29px;
+    padding-top: 48px;             
+}
+
+.contacts__item:not(:nth-child(2n)) {
+    margin-right: 15px;
+}
+
+.contacts_item_caption {
+    margin-bottom: 30px;
+    font-size: 23px;
+    font-weight: 600px;
+    line-height: 180%;
+    color: var(--text-color);
+}
+
+.contacts__item__mail {
+    margin-left: 0px;
+}
+
+.contacts_item_links {
+    font-size: 18px;
+    line-height: 180%;
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.contacts_item_links:hover {
+    color: var(--nav__link-hover);
+}
+
+.contacts__img {
+    margin-bottom: 5px;
+}
+
+.contacts__item__call {
+    background-image: url("");
+}
+
+.contacts__item__mail {
+    background-image: url("");
+}
+
+/*footer*/
+
+.footer {
+    padding: 42px 0;
+    background-color: #000;
+}
+
+.footer__container {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__left, 
+.footer__right {
+    align-items: center;
+}
+
+.footer__logo {
+    margin-right: 25px;
+}
+
+.footer__rights {
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--text-color);
+}
+
+.footer__link {
+    font-weight: 600px;
+    color: var(--text-color);
+    font-size: 17px;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer__link:hover {
+    color:  var(--nav__link-hover);
+}
+
+.footer__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer__link:hover::after {
+    transform: scale(1);
+}
+
+.footer__nav {
+    margin-right: 56px;
+}
+
+.social__link {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.social__item:not(:last-child) {
+    margin-right: 32px;
+}
+
+.social__link path {
+    transition-property: fill, transform;
+    transition: .3s ease-in-out;
+}
+
+.social__link:focus path,
+.social__link:hover path {
+  fill: #b0030d;
+  transform: scale(1.1) translate(-1px, -1px);
+}
+.social__link:active path {
+  fill: #b0030d;
+  opacity: 0.4;
+}
